@@ -1,0 +1,33 @@
+{% load_yaml as lookup %}
+FreeBSD:
+    package: nginx
+    service: nginx
+    web_user: www
+    config_file: /usr/local/etc/nginx/nginx.conf
+    vhosts_available: /usr/local/etc/nginx/sites-available
+    vhosts_enabled: /usr/local/etc/nginx/sites-enabled
+{% endload %}
+
+{% load_json as rawmap %} {
+"server": {
+    "config": {
+        "worker_process": "1",
+        "events": {
+            "worker_connection": "1024"
+        },
+        "http": {
+            "log_format main": "'$remote_addr $host $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$request_body\" $request_time'",
+            "default_type": "application/octet-stream",
+            "sendfile": "on",
+            "keepalive_timeout": "65",
+            "include": [
+                "mime.types"
+            ]
+        }
+    }
+},
+"vhosts": {
+    "managed": [],
+    "config": {}
+}
+} {% endload %}

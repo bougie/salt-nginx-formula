@@ -1,0 +1,21 @@
+#!json
+
+{"nginx": {
+	"server": {
+		"config": {
+			"user": "www-data"
+		}
+	},
+	"vhosts": {
+		"managed": ["default"],
+		"config": {
+			"default": {
+				"listen": [
+					"80"
+				],
+				"server_name": "www.domain.tld",
+				"index": "index.html",
+			}
+		}
+	}
+}}
