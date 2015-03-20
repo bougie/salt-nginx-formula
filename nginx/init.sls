@@ -11,6 +11,7 @@ extend:
         service:
             - watch:
                 - file: nginx_config
+                - pkg: nginx_package
             - require:
                 - file: nginx_config
     nginx_config:
