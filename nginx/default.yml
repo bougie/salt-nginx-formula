@@ -11,9 +11,9 @@ FreeBSD:
 {% load_json as rawmap %} {
 "server": {
     "config": {
-        "worker_process": "1",
+        "worker_processes": "1",
         "events": {
-            "worker_connection": "1024"
+            "worker_connections": "1024"
         },
         "http": {
             "log_format main": "'$remote_addr $host $remote_user [$time_local] \"$request\" $status $body_bytes_sent \"$http_referer\" \"$request_body\" $request_time'",
