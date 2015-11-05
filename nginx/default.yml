@@ -9,7 +9,7 @@ FreeBSD:
 CentOS:
     package: nginx
     service: nginx
-    web_user: www
+    web_user: nginx
     config_file: /etc/nginx/nginx.conf
     vhosts_available: /etc/nginx/sites-available
     vhosts_enabled: /etc/nginx/sites-enabled
