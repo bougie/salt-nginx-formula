@@ -1,6 +1,6 @@
 {% from "nginx/default.yml" import lookup, rawmap with context %}
 {% set lookup = salt['grains.filter_by'](lookup, grain='os', merge=salt['pillar.get']('nginx:lookup')) %}
-{% set rawmap = salt['pillar.get']('nginx', rawmap, merge=True) %}
+{% set rawmap = salt['pillar.get']('nginx', rawmap) %}
 
 {% do rawmap.server.config.http.include.append(lookup.vhosts_enabled ~ '/*.conf') %}
 
